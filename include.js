@@ -2,7 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // Fetch layout.html
-    fetch('/pages/layout.html')
+    fetch('/Pages/layout.html')
         .then(response => response.text())
         .then(html => {
             const parser = new DOMParser();
@@ -27,4 +27,5 @@ document.addEventListener('DOMContentLoaded', function() {
             })
         .catch(error => console.error('Error loading header/footer:', error));
 });
+
 
