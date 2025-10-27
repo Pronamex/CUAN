@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Licenciatura en Administración - CUAN</title>
+    <meta name="description" content="Formamos líderes en administración, finanzas y negocios. Licenciaturas y educación continua en Zinacantepec, México. Inscríbete en CUAN." />
+    <link rel="icon" type="image/png" href="/wwwroot/favicon.png" sizes="16x16">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/wwwroot/css/styles.css">
+    <link rel="stylesheet" href="/ScrollReveal.js">
+    <style>
+        /* Secciones */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--verde-oscuro);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--amarillo);
+        }
+
+        /* Sección de Descripción */
+        .description {
+            background-color: var(--gris-claro);
+        }
+
+        .description-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .description-text h3 {
+            color: var(--verde-oscuro);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .description-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .description-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            color: var(--verde-claro);
+            margin-top: 5px;
+        }
+
+        .feature-text h4 {
+            color: var(--verde-oscuro);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Estilos para imagen consistente */
+        .image-container {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Botón de video */
+        .video-btn {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            background-color: var(--verde-oscuro);
+            color: var(--blanco);
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .video-btn:hover {
+            background-color: var(--verde-claro);
+            color: var(--blanco);
+        }
+
+        /* Sección de Plan de Estudios */
+        .curriculum {
+            background-color: var(--blanco);
+        }
+
+        .semesters-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .semester {
+            margin-bottom: 1.5rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .semester-header {
+            background-color: var(--verde-oscuro);
+            color: var(--blanco);
+            padding: 1.2rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .semester-header:hover {
+            background-color: var(--verde-claro);
+        }
+
+        .semester-header h3 {
+            font-size: 1.3rem;
+            margin: 0;
+        }
+
+        .semester-header i {
+            transition: transform 0.3s ease;
+        }
+
+        .semester.active .semester-header i {
+            transform: rotate(180deg);
+        }
+
+        .semester-content {
+            background-color: var(--gris-claro);
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .semester.active .semester-content {
+            padding: 1.5rem;
+            max-height: 1000px;
+        }
+
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .subject {
+            background-color: var(--blanco);
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .subject:hover {
+            transform: translateY(-5px);
+        }
+
+        .subject h4 {
+            color: var(--verde-oscuro);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .subject p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: var(--blanco);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-item {
+                margin: 1rem 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                width: 100%;
+                padding: 0;
+                margin-top: 1rem;
+                display: none;
+            }
+
+            .dropdown-submenu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                width: 100%;
+                padding: 0;
+                margin-top: 0.5rem;
+                display: none;
+            }
+
+            .dropdown-item.active > .dropdown-menu,
+            .dropdown-item.active > .dropdown-submenu {
+                display: block;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .description-content {
+                grid-template-columns: 1fr;
+            }
+
+            .description-features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .subjects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header y Navbar -->
+    <header></header>
+
+
+    <!-- Hero Section con Video -->
+    <section class="hero">
+        <video autoplay muted loop class="video-background">
+            <source src="https://www.pexels.com/es-es/download/video/7821854/" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+        <div class="hero-content">
+            <h2 class="carrera-nombre"></h2>
+            <p class="carrera-tagline"></p>
+            <a href="#curriculum" class="btn">Ver Plan de Estudios</a>
+        </div>
+        <div class="boton-scroll">
+            <a href="#description" class="btn"><i class="fa fa-chevron-circle-down" aria-hidden="true"></i></a>
+        </div>
+    </section>
+
+    <!-- Sección de Descripción -->
+    <section class="description" id="description">
+        <div class="container">
+            <div class="description-content">
+                <div class="description-text">
+                    <h3 class="carrera-subtitulo"></h3>
+                    <p class="carrera-descripcion"></p>
+                    
+                    <div class="description-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Validez Oficial</h4>
+                                <p class="carrera-validez"></p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Modalidad Educativa</h4>
+                                <p class="carrera-modalidad">Escolarizada<br>7:00 a 15:00 hrs</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Duración</h4>
+                                <p class="carrera-duracion">09 periodos<br>4.5 años</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Inicio de Clases</h4>
+                                <p class="carrera-inicio"><b>5 de agosto</b>, 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="description-image">
+                    <a href="" class="btn video-btn">Ver video de la carrera</a>
+                    <div class="image-container">
+                        <img src="https://images.pexels.com/photos/7876786/pexels-photo-7876786.jpeg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Plan de Estudios -->
+    <section class="curriculum" id="curriculum">
+        <div class="container">
+            <div class="section-title">
+                <h2>Plan de Estudios</h2>
+                <p class="carrera-plan-descripcion">Nueve Cuatrimestres diseñados para formar administradores de excelencia</p>
+            </div>
+            <div class="semesters-container">
+                <!-- Los cuatrimestres se generarán dinámicamente con JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section class="contact">
+        <div class="container">
+            <div class="section-title reveal headline">
+                <h2>Contacto</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info reveal tagline">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Dirección</h3>
+                            <p class="contacto-direccion">Bachilleres 116-A, San Juan de las Huertas, C.P. 51370, Zinacantepec.</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Teléfono</h3>
+                            <p class="contacto-telefono">+52 55 1234 5678</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p class="contacto-email">administracion@educuan.com.mx</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Horarios</h3>
+                            <p class="contacto-horarios">Lunes a Viernes: 8:00 - 20:00<br>Sábados: 9:00 - 14:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container reveal punchline">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1829.752894504359!2d-99.74735362156567!3d19.250273526538432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cd874af7c75b27%3A0x68b6727419848fea!2sCentro%20Universitario%20para%20Administraci%C3%B3n%20de%20Negocios%20S.C.!5e0!3m2!1sen!2smx!4v1760111879046!5m2!1sen!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+    </footer>
+
+    <script>
+        // Acordeón para Cuatrimestres
+        const semesterHeaders = document.querySelectorAll('.semester-header');
+
+        semesterHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const semester = header.parentElement;
+                semester.classList.toggle('active');
+                
+                // Cerrar otros Cuatrimestres abiertos (opcional)
+                // semesterHeaders.forEach(otherHeader => {
+                //     if (otherHeader !== header) {
+                //         otherHeader.parentElement.classList.remove('active');
+                //     }
+                // });
+            });
+        });
+    </script>
+    <script src="/carrera-loader.js"></script>
+    <script src="/include.js"></script>
+    <script src="/ScrollReveal.js"></script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // Fetch layout.html
-    fetch('/Pages/layout.html')
+    fetch('/layout.html')
         .then(response => response.text())
         .then(html => {
             const parser = new DOMParser();

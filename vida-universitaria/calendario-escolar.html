@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario Escolar - CUAN</title>
+    <meta name="description" content="Formamos líderes en administración, finanzas y negocios. Licenciaturas y educación continua en Zinacantepec, México. Inscríbete en CUAN." />
+    <link rel="icon" type="image/png" href="/wwwroot/favicon.png" sizes="16x16">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/wwwroot/css/styles.css">
+    <link rel="stylesheet" href="/ScrollReveal.js">
+</head>
+
+<header></header>
+
+<body>
+
+      <!-- Hero Section con Video -->
+    <section class="hero">
+        <video autoplay muted loop class="video-background">
+            <source src="https://www.pexels.com/es-es/download/video/9057559/" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+        <div class="hero-content">
+            <h2>Descarga tu calendario escolar actualizado</h2>
+            <p class="carrera-tagline"></p>
+            <a id="calendario-link" class="btn" href="#" target="_blank">Calendario escolar</a>
+        </div>
+    </section>
+
+</body>
+
+<footer></footer>
+
+<script>
+  (function () {
+    // Cambia este corte si tu institución usa otro mes de inicio (0=Enero, 7=Agosto)
+    const CUTOFF_MONTH = 7; // 7 = Agosto
+
+    const now = new Date();
+    const y = now.getFullYear();
+    const m = now.getMonth(); // 0-11
+
+    const startYear = (m >= CUTOFF_MONTH) ? y : (y - 1);
+    const endYear   = startYear + 1;
+
+    const url = `http://dep.uaemex.mx/portal/docs/calendario${startYear}_${endYear}.pdf`;
+
+    const a = document.getElementById('calendario-link');
+    a.href = url;
+    a.setAttribute('download', `calendario_${startYear}_${endYear}.pdf`);
+    a.textContent = `Descargar calendario ${startYear}-${endYear}`;
+  })();
+</script>
+<script src="/include.js"></script>
+
+</html>
