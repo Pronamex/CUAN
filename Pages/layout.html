@@ -8,6 +8,22 @@
 <body>
     <!-- Header y Navbar -->
     <header>
+        <script>
+            (function () {
+            // Detect GitHub Pages (project site)
+            const isGhPages = location.hostname.endsWith('github.io');
+
+            // Derive repo name from URL when on GitHub Pages
+            // e.g. https://user.github.io/my-repo/ -> "my-repo"
+            const repoName = isGhPages ? location.pathname.split('/')[1] : '';
+
+            // Create a <base> so that hrefs starting with "/" resolve correctly
+            const base = document.createElement('base');
+            base.href = isGhPages ? `/${repoName}/` : '/';
+            document.head.prepend(base);
+            })();
+        </script>
+
         <div class="container">
             <nav class="navbar">
                 <div class="logo">
