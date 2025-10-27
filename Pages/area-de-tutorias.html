@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área de Tutorías - CUAN</title>
+    <meta name="description" content="Formamos líderes en administración, finanzas y negocios. Licenciaturas y educación continua en Zinacantepec, México. Inscríbete en CUAN." />
+    <link rel="icon" type="image/png" href="/wwwroot/favicon.png" sizes="16x16">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/wwwroot/css/styles.css">
+    <link rel="stylesheet" href="/wwwroot/css/ScrollReveal.css">
+    <style>
+        /* Estilos específicos para la página de tutorías */
+        .tutoring-hero {
+            background: linear-gradient(135deg, var(--verde-oscuro) 0%, var(--verde-claro) 100%);
+            color: var(--blanco);
+            padding: 120px 0 60px;
+            text-align: center;
+            margin-top: 70px;
+        }
+        
+        .tutoring-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tutoring-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .tutoring-content {
+            padding: 5rem 0;
+        }
+        
+        .tabs-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid var(--gris-claro);
+        }
+        
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--verde-oscuro);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tab-btn i {
+            font-size: 1.2rem;
+        }
+        
+        .tab-btn.active {
+            color: var(--verde-claro);
+        }
+        
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--verde-claro);
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .info-section {
+            background-color: var(--blanco);
+            border-radius: 10px;
+            padding: 2.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+        }
+        
+        .info-section h2 {
+            color: var(--verde-oscuro);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .info-section h2 i {
+            color: var(--amarillo);
+        }
+        
+        .info-section p {
+            line-height: 1.7;
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+        
+        .highlight-box {
+            background-color: rgba(245, 180, 52, 0.1);
+            border-left: 4px solid var(--amarillo);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-item {
+            display: flex;
+            gap: 15px;
+            padding: 1.5rem;
+            background-color: var(--gris-claro);
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background-color: var(--verde-claro);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blanco);
+            font-size: 1.5rem;
+        }
+        
+        .feature-content h3 {
+            color: var(--verde-oscuro);
+            margin-bottom: 0.5rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--verde-claro) 0%, var(--verde-oscuro) 100%);
+            color: var(--blanco);
+            text-align: center;
+            padding: 4rem 2rem;
+            border-radius: 10px;
+            margin-top: 3rem;
+        }
+        
+        .cta-section h2 {
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: var(--amarillo);
+            color: var(--verde-oscuro);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-btn:hover {
+            background-color: var(--blanco);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .info-section {
+                padding: 1.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tutoring-hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header se incluye desde layout.html -->
+    <header></header>
+    
+    <main>
+        <!-- Sección Hero -->
+        <section class="hero">
+            <video autoplay muted loop class="video-background">
+                <source src="https://www.pexels.com/es-es/download/video/7970486/" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+            </video>
+            <div class="hero-content">
+                <h2>Área de Tutorías</h2>
+                <p>Brindamos orientación especializada para el desarrollo académico y personal de nuestros estudiantes</p>
+            </div>
+            <div class="boton-scroll">
+                <a href="#contenido" class="btn"><i class="fa fa-chevron-circle-down" aria-hidden="true"></i></a>
+            </div>
+        </section>
+
+            
+        <!-- Contenido Principal -->
+        <section class="tutoring-content" id="contenido">
+            <div class="container">
+                <div class="tabs-container">
+                    <!-- Pestañas de navegación -->
+                    <div class="tabs">
+                        <button class="tab-btn active" data-tab="orientacion">
+                            <i class="fas fa-compass"></i> Orientación Vocacional
+                        </button>
+                        <button class="tab-btn" data-tab="dat">
+                            <i class="fas fa-chart-bar"></i> DAT
+                        </button>
+                    </div>
+                    
+                    <!-- Contenido de Orientación Vocacional -->
+                    <div id="orientacion" class="tab-content active">
+                        <div class="info-section">
+                            <h2><i class="fas fa-exclamation-circle"></i> Importancia de la Orientación</h2>
+                            <p>En la actualidad muchos jóvenes no obtienen satisfacción con los estudios que eligieron porque tomaron decisiones basadas en información insuficiente, subjetiva o bajo la influencia de los medios de comunicación, amigos o familiares, entre otros.</p>
+                            <div class="highlight-box">
+                                <p><strong>Una decisión vocacional equivocada puede ser motivo de crisis familiares, problemas emocionales, cambio o abandono de los estudios, frustración, pérdida de esfuerzo, de tiempo y recursos económicos.</strong></p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h2><i class="fas fa-graduation-cap"></i> Orientación Vocacional en CUAN</h2>
+                            <p>CUAN brinda soluciones de Orientación Vocacional y Orientación Educativa para el mejoramiento en rendimiento escolar en beneficio de los orientadores, instituciones educativas, padres de familia y estudiantes.</p>
+                            <p>En el CUAN la Orientación vocacional es parte fundamental para la toma de decisiones de nuestros alumnos de bachillerato, contamos con un departamento de Psicopedagogía, que se encarga del perfil de ingreso de nuestros alumnos, así como de su seguimiento durante su trayectoria escolar.</p>
+                            <p>Para una buena orientación vocacional es indispensable contar con instrumentos válidos, confiables y efectivos, desarrollados para la población mexicana y adaptados al mercado laboral del país.</p>
+                        </div>
+                        
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-user-graduate"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h3>Seguimiento Personalizado</h3>
+                                    <p>Acompañamiento continuo durante toda la trayectoria académica del estudiante.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h3>Evaluación Psicopedagógica</h3>
+                                    <p>Análisis completo de habilidades, intereses y aptitudes de cada estudiante.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-hands-helping"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h3>Apoyo Integral</h3>
+                                    <p>Asesoramiento para estudiantes, padres de familia e instituciones educativas.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contenido de DAT -->
+                    <div id="dat" class="tab-content">
+                        <div class="info-section">
+                            <h2><i class="fas fa-clipboard-check"></i> Batería de Pruebas Diferenciales de Aptitudes (DAT)</h2>
+                            <p>A través de la BATERÍA DE PRUEBAS DIFERENCIALES DE APTITUDES (DAT) se miden la capacidad para razonar y adquirir conocimientos. Proporcionando un perfil cuantitativo y cualitativo de las aptitudes necesarias para realizar estudios o desempeñar trabajos.</p>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h2><i class="fas fa-chart-line"></i> Aplicación del DAT en CUAN</h2>
+                            <p>CUAN a través de la BATERÍA DE PRUEBAS DIFERENCIALES DE APTITUDES (DAT) y del diagnóstico de su población estudiantil, desarrolla sesiones de tutorías personalizadas, que permite retroalimentar en los discentes las habilidades que requieren fortalecer, por medio de diferentes actividades.</p>
+                            
+                            <div class="features-grid">
+                                <div class="feature-item">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                    <div class="feature-content">
+                                        <h3>Diagnóstico Preciso</h3>
+                                        <p>Identificación de fortalezas y áreas de oportunidad mediante pruebas validadas.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-user-edit"></i>
+                                    </div>
+                                    <div class="feature-content">
+                                        <h3>Tutorías Personalizadas</h3>
+                                        <p>Sesiones individuales basadas en los resultados específicos de cada estudiante.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-tasks"></i>
+                                    </div>
+                                    <div class="feature-content">
+                                        <h3>Plan de Desarrollo</h3>
+                                        <p>Estrategias específicas para fortalecer habilidades identificadas en las pruebas.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Llamada a la acción -->
+                <div class="cta-section">
+                    <h2>¿Necesitas orientación académica?</h2>
+                    <p>Contáctanos para obtener más información sobre nuestros servicios de tutorías y orientación vocacional. Estamos aquí para ayudarte a tomar la mejor decisión para tu futuro.</p>
+                    <a href="/Pages/contacto.html" class="cta-btn">Solicitar Información</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer></footer>
+    <!-- Footer se incluye desde layout.html -->
+    <script src="/include.js"></script>
+    <script>
+        // Script para el funcionamiento de las pestañas
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remover clase active de todos los botones y contenidos
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Añadir clase active al botón clickeado
+                    btn.classList.add('active');
+                    
+                    // Mostrar el contenido correspondiente
+                    const tabId = btn.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proceso de Admisión - CUAN</title>
+    <meta name="description" content="Formamos líderes en administración, finanzas y negocios. Licenciaturas y educación continua en Zinacantepec, México. Inscríbete en CUAN." />
+    <link rel="icon" type="image/png" href="/wwwroot/favicon.png" sizes="16x16">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/wwwroot/css/styles.css">
+    <link rel="stylesheet" href="/wwwroot/css/ScrollReveal.css">
+    <style>
+        /* Estilos específicos para la página de admisión */
+        .admission-process {
+            padding: 7rem 0 5rem;
+            background-color: var(--gris-claro);
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .step-card {
+            background-color: var(--blanco);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .step-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .step-icon {
+            font-size: 3rem;
+            color: var(--verde-claro);
+            margin-bottom: 1.5rem;
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: var(--amarillo);
+            color: var(--verde-oscuro);
+            border-radius: 50%;
+            line-height: 40px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .documents-section {
+            background-color: var(--blanco);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .document-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 1.5rem;
+            background-color: var(--gris-claro);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        
+        .document-item:hover {
+            background-color: rgba(74, 156, 95, 0.1);
+            transform: translateX(5px);
+        }
+        
+        .document-icon {
+            font-size: 1.5rem;
+            color: var(--verde-claro);
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .document-info h4 {
+            color: var(--verde-oscuro);
+            margin-bottom: 0.5rem;
+        }
+        
+        .required {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .info-box {
+            background-color: rgba(245, 180, 52, 0.1);
+            border-left: 4px solid var(--amarillo);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .cta-section {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 3rem;
+            background-color: var(--verde-oscuro);
+            color: var(--blanco);
+            border-radius: 10px;
+        }
+        
+        .cta-section .btn {
+            background-color: var(--amarillo);
+            color: var(--verde-oscuro);
+            margin-top: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .documents-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .documents-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <!-- Header y Navbar -->
+    <header></header>
+
+    <!-- Hero Section con Video -->
+    <section class="hero">
+        <video autoplay muted loop class="video-background">
+            <source src="https://www.pexels.com/es-es/download/video/8865909/" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+        <div class="hero-content">
+            <h2>Proceso de Admisión</h2>
+            <p>Conoce los pasos necesarios para formar parte de nuestra comunidad universitaria</p>
+        </div>
+        <div class="boton-scroll">
+            <a href="#admision" class="btn"><i class="fa fa-chevron-circle-down" aria-hidden="true"></i></a>
+        </div>
+    </section>
+
+    <main>
+        <section class="admission-process" id="admision">
+            <div class="container">
+                
+                <div class="process-steps">
+                    <div class="step-card">
+                        <div class="step-icon">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <div class="step-number">1</div>
+                        <h3>Revisión de Requisitos</h3>
+                        <p>Consulta los documentos necesarios y verifica que cumples con todos los requisitos.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="step-number">2</div>
+                        <h3>Preinscripción</h3>
+                        <p>Llena tu solicitud de admisión y reúne toda la documentación requerida.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="step-number">3</div>
+                        <h3>Entrega de Documentos</h3>
+                        <p>Entrega tu expediente completo en el departamento de admisiones.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="step-number">4</div>
+                        <h3>Inicio de Clases</h3>
+                        <p>Una vez aceptado, formaliza tu inscripción y prepárate para comenzar.</p>
+                    </div>
+                </div>
+                
+                <div class="documents-section">
+                    <h3 style="color: var(--verde-oscuro); margin-bottom: 1rem;">Documentos Requeridos</h3>
+                    <p>Asegúrate de contar con toda la documentación necesaria para tu proceso de admisión.</p>
+                    
+                    <div class="info-box">
+                        <p><i class="fas fa-info-circle"></i> Los documentos marcados con <span class="required">*</span> se deberán entregar en original y copia para su respectivo cotejo.</p>
+                    </div>
+                    
+                    <div class="documents-grid">
+                        <div class="document-item">
+                            <div class="document-icon">
+                                <i class="fas fa-file-medical"></i>
+                            </div>
+                            <div class="document-info">
+                                <h4>Acta de Nacimiento Certificada <span class="required">*</span></h4>
+                                <p>Documento oficial expedido por el Registro Civil.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="document-item">
+                            <div class="document-icon">
+                                <i class="fas fa-id-card"></i>
+                            </div>
+                            <div class="document-info">
+                                <h4>Clave Única del Registro de Población (CURP) <span class="required">*</span></h4>
+                                <p>Copia legible y actualizada.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="document-item">
+                            <div class="document-icon">
+                                <i class="fas fa-file-certificate"></i>
+                            </div>
+                            <div class="document-info">
+                                <h4>Certificado total de secundaria</h4>
+                                <p>Documento oficial de estudios de nivel secundaria.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="document-item">
+                            <div class="document-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="document-info">
+                                <h4>Certificado total de bachillerato o constancia oficial de estudios <span class="required">*</span></h4>
+                                <p>En papel membretado, con firma del director y sello oficial del centro escolar, que especifique el promedio general alcanzado.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="document-item">
+                            <div class="document-icon">
+                                <i class="fas fa-stamp"></i>
+                            </div>
+                            <div class="document-info">
+                                <h4>Autenticación del Certificado Total de bachillerato</h4>
+                                <p>Excepto para los que cuenten con certificado emitido por esta Universidad.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="document-item">
+                            <div class="document-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <div class="document-info">
+                                <h4>Certificado médico <span class="required">*</span></h4>
+                                <p>Expedido por una Institución de Salud Pública, con fecha de expedición no mayor a dos meses.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="document-item">
+                            <div class="document-icon">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                            <div class="document-info">
+                                <h4>Seis fotografías tamaño infantil</h4>
+                                <p>En blanco y negro o de color, de frente, únicamente del rostro (del pecho a la cabeza) sin lentes y ropa blanca.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="document-item">
+                            <div class="document-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <div class="document-info">
+                                <h4>Comprobante de Domicilio <span class="required">*</span></h4>
+                                <p>Recibo de agua, luz o predial reciente.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="document-item">
+                            <div class="document-icon">
+                                <i class="fas fa-file-contract"></i>
+                            </div>
+                            <div class="document-info">
+                                <h4>Cédula de Inscripción</h4>
+                                <p>Formulario proporcionado por la institución.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="document-item">
+                            <div class="document-icon">
+                                <i class="fas fa-receipt"></i>
+                            </div>
+                            <div class="document-info">
+                                <h4>Comprobante de pago de Inscripción</h4>
+                                <p>Recibo oficial del pago realizado.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cta-section">
+                    <h3>¿Listo para comenzar tu futuro en CUAN?</h3>
+                    <p>No esperes más y da el primer paso hacia tu educación universitaria. Nuestro equipo de admisiones está listo para ayudarte.</p>
+                    <a href="/Pages/contacto.html" class="btn">Contactar Admisiones</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer></footer>
+
+    <script src="/include.js"></script>
+</body>
+</html>

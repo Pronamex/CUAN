@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - CUAN</title>
+    <meta name="description" content="Formamos líderes en administración, finanzas y negocios. Licenciaturas y educación continua en Zinacantepec, México. Inscríbete en CUAN." />
+    <link rel="icon" type="image/png" href="/wwwroot/favicon.png" sizes="16x16">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/wwwroot/css/styles.css">
+    <link rel="stylesheet" href="/wwwroot/css/ScrollReveal.css">
+    <style>
+        /* Sección de Formulario de Contacto */
+        .contact-form-section {
+            background-color: var(--gris-claro);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .form-container {
+            background-color: var(--blanco);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-intro {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .form-intro h2 {
+            color: var(--verde-oscuro);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-intro p {
+            color: #666;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            color: var(--verde-oscuro);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: var(--verde-claro);
+            box-shadow: 0 0 0 2px rgba(74, 156, 95, 0.2);
+            outline: none;
+        }
+
+        .checkbox-group {
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .checkbox-group input {
+            margin-top: 5px;
+        }
+
+        .checkbox-group label {
+            margin-bottom: 0;
+            font-weight: normal;
+        }
+
+        .checkbox-group a {
+            color: var(--verde-claro);
+            text-decoration: none;
+        }
+
+        .checkbox-group a:hover {
+            text-decoration: underline;
+        }
+
+        /* Información de Contacto */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 1rem;
+            background-color: var(--blanco);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .info-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: var(--verde-claro);
+            color: var(--blanco);
+            border-radius: 50%;
+            font-size: 1.2rem;
+        }
+
+       
+
+        .info-details h3 {
+            color: var(--verde-oscuro);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-details p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 1rem;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .info-details{
+            max-width: 70%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header y Navbar -->
+    <header></header>
+
+    <!-- Hero Section con Video -->
+    <section class="hero">
+        <video autoplay muted loop class="video-background">
+            <source src="https://www.pexels.com/es-es/download/video/8865909/" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+        <div class="hero-content">
+            <h2>Contáctanos</h2>
+            <p>Estamos aquí para resolver todas tus dudas y brindarte la información que necesitas</p>
+        </div>
+        <div class="boton-scroll">
+            <a href="#contact-form-section" class="btn"><i class="fa fa-chevron-circle-down" aria-hidden="true"></i></a>
+        </div>
+    </section>
+
+    <!-- Sección de Formulario de Contacto -->
+    <section class="contact-form-section" id="contact-form-section">
+        <div class="container">
+            <div class="contact-container">
+                <div class="form-container">
+                    <div class="form-intro">
+                        <h2>Formulario de contacto</h2>
+                        <p>¡Recibe atención personalizada!</p>
+                    </div>
+                    <form class="contact-form" action="https://formsubmit.co/liferoadanimation@gmail.com" method="POST">
+                        <!-- Visible fields -->
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nombre">Apellidos</label>
+                            <input type="text" id="apellidos" name="apellidos" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="numero">Número telefónico</label>
+                            <input type="tel" id="numero" name="numero">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="carrera">Carrera de interés</label>
+                            <select id="carrera" name="carrera" required>
+                                <option value="">Selecciona una opción</option>
+                                <option>Licenciatura en Administración</option>
+                                <option>Licenciatura en Contaduría</option>
+                                <option>Preparatoria</option>
+                                <option>Área de Tutorías</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="privacidad" name="privacidad" required>
+                            <label for="privacidad">He leído y acepto la <a href="/Pages/politicas-de-privacidad.html" target="_blank">Política de privacidad</a></label>
+                        </div>
+
+                        <!-- Redirect after success (must be absolute URL) -->
+                        <input type="hidden" name="_next" value="https://educuan.mx">
+
+                        <!-- Email subject you receive -->
+                        <input type="hidden" name="_subject" value="Nueva solicitud de información (sitio CUAN)">
+
+                        <!-- Optional: CC another admin -->
+                        <input type="hidden" name="_cc" value="sistemas@pronamexsa.com">
+
+                        <!-- Optional: CC another admin -->
+                        <input type="hidden" name="_cc" value="jose.s@pronamexsacv.com">
+                        
+                        <!-- Optional: CC another admin -->
+                        <input type="hidden" name="_cc" value="administracion@educuan.mx">
+
+
+                        <!-- Optional: pick a nicer email template -->
+                        <input type="hidden" name="_template" value="table">
+
+                        <!-- Basic spam honeypot -->
+                        <input type="text" name="_honey" style="display:none">
+
+                        <!-- IMPORTANT: do NOT disable captcha if you want autoresponse to work -->
+                        <input type="hidden" name="_captcha" value="false"> 
+
+                        <button type="submit" class="btn">Enviar</button>
+                    </form>
+                </div>
+
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-details">
+                            <h3>Dirección</h3>
+                            <p>Bachilleres 116-A, San Juan de las Huertas, C.P. 51370, Zinacantepec. </p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="info-details">
+                            <h3>Teléfono</h3>
+                            <p>+52 (722) 649 0134</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-details">
+                            <h3>Email</h3>
+                            <p>administracion@educuan.com.mx</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="info-details">
+                            <h3>Horarios</h3>
+                            <p>Lunes a Viernes: 8:00 - 20:00<br>Sábados: 9:00 - 14:00</p>
+                        </div>
+                    </div>
+
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1829.752894504359!2d-99.74735362156567!3d19.250273526538432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cd874af7c75b27%3A0x68b6727419848fea!2sCentro%20Universitario%20para%20Administraci%C3%B3n%20de%20Negocios%20S.C.!5e0!3m2!1sen!2smx!4v1760111879046!5m2!1sen!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer></footer>
+
+    <script src="/include.js"></script>
+</body>
+</html>

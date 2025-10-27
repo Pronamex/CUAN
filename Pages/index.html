@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CUAN - Centro Universitario para la Administración de Negocios</title>
+    <meta name="description" content="Formamos líderes en administración, finanzas y negocios. Licenciaturas y educación continua en Zinacantepec, México. Inscríbete en CUAN." />
+    <link rel="icon" type="image/png" href="/wwwroot/favicon.png" sizes="16x16">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/wwwroot/css/styles.css">
+    <link rel="stylesheet" href="/wwwroot/css/ScrollReveal.css">
+    <style>
+        /* Sección de Oferta Académica - Carrusel */
+        .academic-offer {
+            background-color: var(--gris-claro);
+            position: relative;
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            padding: 0 50px;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            gap: 2rem;
+        }
+
+        .program-card {
+            background-color: var(--blanco);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            flex: 0 0 calc(33.333% - 1.33rem);
+            min-width: 300px;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .program-img {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blanco);
+            font-size: 1.5rem;
+            background-size: 100%;
+            background-position: center;
+        }
+
+        .program-card:hover .program-img {
+            background-size: 110%;
+            transition: all .25s ease;
+        }
+
+        #preparatoria {
+            background-image: url("https://images.pexels.com/photos/6209361/pexels-photo-6209361.jpeg");
+        }
+
+        #administracion {
+            background-image: url("https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg");
+        }
+
+        #contaduria {
+            background-image: url("https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg");
+        }
+
+        .program-content {
+            padding: 1.5rem;
+        }
+
+        .program-content h3 {
+            color: var(--verde-oscuro);
+            margin-bottom: 1rem;
+        }
+
+        .program-content .btn {
+            margin: 15px 0;
+        }
+
+        /* Controles del carrusel */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .carousel-btn:hover {
+            background-color: var(--blanco);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-btn.prev {
+            left: 0;
+        }
+
+        .carousel-btn.next {
+            right: 0;
+        }
+
+        .carousel-btn i {
+            color: var(--verde-oscuro);
+            font-size: 1.2rem;
+        }
+
+        /* Indicadores del carrusel */
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 10px;
+        }
+
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(26, 77, 46, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-indicator.active {
+            background-color: var(--verde-oscuro);
+            transform: scale(1.2);
+        }
+
+        /* Responsive para el carrusel */
+        @media (max-width: 992px) {
+            .carousel-container {
+                padding: 0 20px;
+            }
+
+            .program-card {
+                flex: 0 0 calc(100% - 1rem);
+            }
+
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (min-width: 993px) and (max-width: 1200px) {
+            .program-card {
+                flex: 0 0 calc(50% - 1rem);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header></header>
+
+    <!-- Hero Section con Video -->
+    <section class="hero">
+        <video autoplay muted loop class="video-background">
+            <source src="/wwwroot/videos/VideoFondo.mp4" type="video/mp4">
+            <!--https://assets.mixkit.co/videos/4788/4788-720.mp4-->
+            Tu navegador no soporta el elemento de video.
+        </video>
+        <div class="hero-content">
+            <h2>Centro Universitario para la Administración de Negocios</h2>
+            <p>Formando líderes con visión empresarial y compromiso social</p>
+            <a href="#Oferta-Educativa" class="btn">Descubre Nuestros Programas</a>
+        </div>
+    </section>
+
+    <!-- Sección de Oferta Académica -->
+    <section class="academic-offer" id="Oferta-Educativa">
+    <div class="container">
+        <div class="section-title">
+        <h2 class="reveal headline">Oferta Académica</h2>
+        </div>
+        <div class="carousel-container reveal logline">
+        <button class="carousel-btn prev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+
+        
+
+        <div class="carousel-track">
+
+            <!-- Preparatoria (UAEM) -->
+            <div class="program-card">
+                <div class="program-img" style="background-image: url('https://images.pexels.com/photos/1181471/pexels-photo-1181471.jpeg');">
+                </div>
+                <div class="program-content">
+                    <h3>Preparatoria</h3>
+                    <p>Preparación académica y personal para construir tu futuro universitario.</p>
+                    <a href="#" class="btn">Más información</a>
+                </div>
+             </div>
+        
+            <!-- Ingeniería Industrial (SEP) -->
+            <div class="program-card">
+                <div class="program-img" style="background-image: url('https://images.pexels.com/photos/2760242/pexels-photo-2760242.jpeg');">
+                </div>
+                <div class="program-content">
+                    <h3>Ingeniería Industrial</h3>
+                    <p>Optimiza procesos y lidera la mejora continua con enfoque científico y humano.</p>
+                    <a href="#" class="btn">Más información</a>
+                </div>
+            </div>
+
+            <!-- Licenciatura en Administración (SEP) -->
+            <div class="program-card">
+                <div class="program-img" style="background-image: url('https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg');">
+                </div>
+                <div class="program-content">
+                    <h3>Licenciatura en Administración</h3>
+                    <p>Formamos líderes capaces de dirigir y transformar organizaciones con visión estratégica.</p>
+                    <a href="#" class="btn">Más información</a>
+                </div>
+            </div>
+
+            <!-- Licenciatura en Administración (UAEM) -->
+            <div class="program-card">
+                <div class="program-img" style="background-image: url('https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg');">
+                </div>
+                <div class="program-content">
+                    <h3>Licenciatura en Administración</h3>
+                    <p>Estrategia, liderazgo y gestión para organizaciones de alto impacto.</p>
+                    <a href="#" class="btn">Más información</a>
+                </div>
+            </div>
+
+            <!-- Licenciatura en Contaduría (UAEM) -->
+            <div class="program-card">
+                <div class="program-img" style="background-image: url('https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg');">
+                </div>
+                <div class="program-content">
+                    <h3>Licenciatura en Contaduría</h3>
+                    <p>Transparencia financiera y cumplimiento para la toma de decisiones.</p>
+                    <a href="#" class="btn">Más información</a>
+                </div>
+            </div>
+
+            <!-- Licenciatura en Derecho (SEP) -->
+            <div class="program-card">
+                <div class="program-img" style="background-image: url('https://images.pexels.com/photos/6077326/pexels-photo-6077326.jpeg');">
+                </div>
+                <div class="program-content">
+                    <h3>Licenciatura en Derecho</h3>
+                    <p>Formamos juristas con sentido ético y visión humanista para la defensa de la justicia.</p>
+                    <a href="#" class="btn">Más información</a>
+                </div>
+            </div>
+
+            <!-- Licenciatura en Negocios Internacionales (UAEM) -->
+            <div class="program-card">
+                <div class="program-img" style="background-image: url('https://images.pexels.com/photos/3184416/pexels-photo-3184416.jpeg');">
+                </div>
+                <div class="program-content">
+                    <h3>Licenciatura en Negocios Internacionales</h3>
+                    <p>Competitividad global con enfoque estratégico, financiero y analítico.</p>
+                    <a href="#" class="btn">Más información</a>
+                </div>
+            </div>
+
+            <!-- Licenciatura en Pedagogía (SEP) -->
+            <div class="program-card">
+                <div class="program-img" style="background-image: url('https://images.pexels.com/photos/3184643/pexels-photo-3184643.jpeg');">
+                </div>
+                <div class="program-content">
+                    <h3>Licenciatura en Pedagogía</h3>
+                    <p>Diseña experiencias educativas que transforman vidas con enfoque inclusivo e innovador.</p>
+                    <a href="#" class="btn">Más información</a>
+                </div>
+            </div>
+
+            
+        </div>
+
+        <button class="carousel-btn next">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="carousel-indicators" style="display: none;"></div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Sección de Vida Universitaria -->
+    <section class="university-life">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Vida Universitaria</h2>
+            </div>
+            <div class="life-grid reveal tagline">
+                <div class="life-item">
+                    <div class="life-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Actividades Estudiantiles</h3>
+                    <p>Participa en clubs, eventos deportivos y culturales que enriquecen tu experiencia universitaria.</p>
+                </div>
+                <div class="life-item">
+                    <div class="life-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Biblioteca</h3>
+                    <p>Accede a un amplio acervo bibliográfico y recursos digitales para tu formación académica.</p>
+                </div>
+                <div class="life-item">
+                    <div class="life-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Tecnología</h3>
+                    <p>Disfruta de instalaciones modernas y equipadas con tecnología de vanguardia.</p>
+                </div>
+                <div class="life-item">
+                    <div class="life-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Vinculación</h3>
+                    <p>Conectamos a nuestros estudiantes con el sector empresarial a través de prácticas profesionales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section class="contact">
+        <div class="container">
+            <div class="section-title reveal headline">
+                <h2>Contacto</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info reveal tagline">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Dirección</h3>
+                            <p>Bachilleres 116-A, San Juan de las Huertas, C.P. 51370, Zinacantepec.</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Teléfono</h3>
+                            <p>+52 (722) 649 0134</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>administracion@educuan.com.mx</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Horarios</h3>
+                            <p>Lunes a Viernes: 8:00 - 20:00<br>Sábados: 9:00 - 14:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container reveal punchline">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1829.752894504359!2d-99.74735362156567!3d19.250273526538432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cd874af7c75b27%3A0x68b6727419848fea!2sCentro%20Universitario%20para%20Administraci%C3%B3n%20de%20Negocios%20S.C.!5e0!3m2!1sen!2smx!4v1760111879046!5m2!1sen!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer></footer>
+
+    <script>
+        // Carrusel functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.querySelector('.carousel-track');
+            const cards = document.querySelectorAll('.program-card');
+            const prevBtn = document.querySelector('.carousel-btn.prev');
+            const nextBtn = document.querySelector('.carousel-btn.next');
+            const indicatorsContainer = document.querySelector('.carousel-indicators');
+            
+            let currentIndex = 0;
+            let cardWidth = cards[0].offsetWidth + 32; // Width + gap
+            let cardsPerView = Math.floor(track.offsetWidth / cardWidth);
+            
+            // Crear indicadores
+            cards.forEach((_, index) => {
+                const indicator = document.createElement('div');
+                indicator.classList.add('carousel-indicator');
+                if (index === 0) indicator.classList.add('active');
+                indicator.addEventListener('click', () => goToSlide(index));
+                indicatorsContainer.appendChild(indicator);
+            });
+            
+            const indicators = document.querySelectorAll('.carousel-indicator');
+            
+            function updateCardsPerView() {
+                if (window.innerWidth <= 992) {
+                    cardsPerView = 1;
+                } else if (window.innerWidth <= 1200) {
+                    cardsPerView = 2;
+                } else {
+                    cardsPerView = 3;
+                }
+            }
+            
+            function goToSlide(index) {
+                currentIndex = index;
+                const translateX = -currentIndex * cardWidth;
+                track.style.transform = `translateX(${translateX}px)`;
+                
+                // Actualizar indicadores activos
+                indicators.forEach((indicator, i) => {
+                    indicator.classList.toggle('active', i === currentIndex);
+                });
+            }
+            
+            function nextSlide() {
+                if (currentIndex < cards.length - cardsPerView) {
+                    goToSlide(currentIndex + 1);
+                } else {
+                    goToSlide(0); // Volver al inicio
+                }
+            }
+            
+            function prevSlide() {
+                if (currentIndex > 0) {
+                    goToSlide(currentIndex - 1);
+                } else {
+                    goToSlide(cards.length - cardsPerView); // Ir al final
+                }
+            }
+            
+            // Event listeners para botones
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            // Swipe para móviles
+            let startX = 0;
+            let currentX = 0;
+            let isDragging = false;
+            
+            track.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+            });
+            
+            track.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                currentX = e.touches[0].clientX;
+                const diff = startX - currentX;
+                
+                // Mover el carrusel mientras se arrastra
+                const translateX = -currentIndex * cardWidth - diff;
+                track.style.transform = `translateX(${translateX}px)`;
+            });
+            
+            track.addEventListener('touchend', () => {
+                if (!isDragging) return;
+                isDragging = false;
+                
+                const diff = startX - currentX;
+                const threshold = 50; // Mínimo desplazamiento para cambiar de slide
+                
+                if (diff > threshold && currentIndex < cards.length - cardsPerView) {
+                    nextSlide();
+                } else if (diff < -threshold && currentIndex > 0) {
+                    prevSlide();
+                } else {
+                    // Volver a la posición actual si no se supera el umbral
+                    goToSlide(currentIndex);
+                }
+            });
+            
+            // Actualizar en redimensionamiento
+            window.addEventListener('resize', () => {
+                updateCardsPerView();
+                cardWidth = cards[0].offsetWidth + 32;
+                goToSlide(currentIndex);
+            });
+            
+            // Inicializar
+            updateCardsPerView();
+        });
+    </script>
+    <script src="/include.js"></script>
+    <script src="/ScrollReveal.js"></script>
+</body>
+</html>
