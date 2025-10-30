@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CUAN - Centro Universitario para la Administración de Negocios</title>
+    <title>CUAN - Centro Universitario para Administración de Negocios</title>
     <meta name="description" content="Formamos líderes en administración, finanzas y negocios. Licenciaturas y educación continua en Zinacantepec, México. Inscríbete en CUAN." />
     <link rel="icon" type="image/png" href="/wwwroot/favicon.png" sizes="16x16">
 
@@ -166,7 +166,7 @@
             Tu navegador no soporta el elemento de video.
         </video>
         <div class="hero-content">
-            <h2>Centro Universitario para la Administración de Negocios</h2>
+            <h2>Centro Universitario para Administración de Negocios</h2>
             <p>Formando líderes con visión empresarial y compromiso social</p>
             <a href="#Oferta-Educativa" class="btn">Descubre Nuestros Programas</a>
         </div>
@@ -207,7 +207,7 @@
                 </div>
             </div>
 
-            <!-- Licenciatura en Administración (SEP) -->
+            <!-- Licenciatura en Administración (SEP)
             <div class="program-card">
                 <div class="program-img" style="background-image: url('https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=500');">
                 </div>
@@ -216,7 +216,7 @@
                     <p>Formamos líderes capaces de dirigir y transformar organizaciones con visión estratégica.</p>
                     <a href="#" class="btn">Más información</a>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Licenciatura en Administración (UAEM) -->
             <div class="program-card">
@@ -383,11 +383,11 @@
             const prevBtn = document.querySelector('.carousel-btn.prev');
             const nextBtn = document.querySelector('.carousel-btn.next');
             const indicatorsContainer = document.querySelector('.carousel-indicators');
-            
+
             let currentIndex = 0;
             let cardWidth = cards[0].offsetWidth + 32; // Width + gap
             let cardsPerView = Math.floor(track.offsetWidth / cardWidth);
-            
+
             // Crear indicadores
             cards.forEach((_, index) => {
                 const indicator = document.createElement('div');
@@ -396,9 +396,9 @@
                 indicator.addEventListener('click', () => goToSlide(index));
                 indicatorsContainer.appendChild(indicator);
             });
-            
+
             const indicators = document.querySelectorAll('.carousel-indicator');
-            
+
             function updateCardsPerView() {
                 if (window.innerWidth <= 992) {
                     cardsPerView = 1;
@@ -408,18 +408,18 @@
                     cardsPerView = 3;
                 }
             }
-            
+
             function goToSlide(index) {
                 currentIndex = index;
                 const translateX = -currentIndex * cardWidth;
                 track.style.transform = `translateX(${translateX}px)`;
-                
+
                 // Actualizar indicadores activos
                 indicators.forEach((indicator, i) => {
                     indicator.classList.toggle('active', i === currentIndex);
                 });
             }
-            
+
             function nextSlide() {
                 if (currentIndex < cards.length - cardsPerView) {
                     goToSlide(currentIndex + 1);
@@ -427,7 +427,7 @@
                     goToSlide(0); // Volver al inicio
                 }
             }
-            
+
             function prevSlide() {
                 if (currentIndex > 0) {
                     goToSlide(currentIndex - 1);
@@ -435,38 +435,38 @@
                     goToSlide(cards.length - cardsPerView); // Ir al final
                 }
             }
-            
+
             // Event listeners para botones
             nextBtn.addEventListener('click', nextSlide);
             prevBtn.addEventListener('click', prevSlide);
-            
+
             // Swipe para móviles
             let startX = 0;
             let currentX = 0;
             let isDragging = false;
-            
+
             track.addEventListener('touchstart', (e) => {
                 startX = e.touches[0].clientX;
                 isDragging = true;
             });
-            
+
             track.addEventListener('touchmove', (e) => {
                 if (!isDragging) return;
                 currentX = e.touches[0].clientX;
                 const diff = startX - currentX;
-                
+
                 // Mover el carrusel mientras se arrastra
                 const translateX = -currentIndex * cardWidth - diff;
                 track.style.transform = `translateX(${translateX}px)`;
             });
-            
+
             track.addEventListener('touchend', () => {
                 if (!isDragging) return;
                 isDragging = false;
-                
+
                 const diff = startX - currentX;
                 const threshold = 50; // Mínimo desplazamiento para cambiar de slide
-                
+
                 if (diff > threshold && currentIndex < cards.length - cardsPerView) {
                     nextSlide();
                 } else if (diff < -threshold && currentIndex > 0) {
@@ -476,14 +476,14 @@
                     goToSlide(currentIndex);
                 }
             });
-            
+
             // Actualizar en redimensionamiento
             window.addEventListener('resize', () => {
                 updateCardsPerView();
                 cardWidth = cards[0].offsetWidth + 32;
                 goToSlide(currentIndex);
             });
-            
+
             // Inicializar
             updateCardsPerView();
         });

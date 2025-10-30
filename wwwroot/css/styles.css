@@ -102,9 +102,10 @@ header {
 
 .dropdown-menu {
     position: absolute;
+    font-size: small;
     top: 100%;
     left: 0;
-    width: 220px;
+    width: 230px;
     background-color: var(--blanco);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
